@@ -1,1 +1,25 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimpleTodo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="todo-app">
+        <h1>SimpleTodo</h1>
+        <form id="task-form">
+            <input id="new-task" type="text" placeholder="What needs to be done?" autocomplete="off" required>
+            <button type="submit">Add</button>
+        </form>
+        <ul id="task-list" class="task-list"></ul>
+        <div class="filters">
+            <button id="filter-all" class="filter active">All</button>
+            <button id="filter-active" class="filter">Active</button>
+            <button id="filter-completed" class="filter">Completed</button>
+        </div>
+    </div>
+    <script src="app.js" defer></script>
+</body>
+</html>
