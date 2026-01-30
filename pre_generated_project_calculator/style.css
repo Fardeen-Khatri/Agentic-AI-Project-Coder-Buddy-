@@ -1,0 +1,144 @@
+/* Root variables for colors, font sizes, and spacing */
+:root {
+    /* Colors */
+    --color-bg: #f9f9f9;
+    --color-display-bg: #222;
+    --color-display-text: #fff;
+    --color-btn-bg: #e0e0e0;
+    --color-btn-text: #000;
+    --color-operator-bg: #ff9500;
+    --color-operator-text: #fff;
+    --color-operator-bg-hover: #e68a00; /* 10% darker */
+    --color-clear-bg: #ff3b30;
+    --color-clear-text: #fff;
+    --color-clear-bg-hover: #e62e27; /* 10% darker */
+    --color-equals-bg: #34c759;
+    --color-equals-text: #fff;
+    --color-equals-bg-hover: #2fae4f; /* 10% darker */
+    --color-btn-hover-bg: #d0d0d0;
+
+    /* Font sizes */
+    --font-size-display: 2rem;
+    --font-size-btn: 1.5rem;
+    --font-size-btn-small: 1.2rem;
+
+    /* Spacing */
+    --spacing-gap: 5px;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Calculator container */
+.calculator {
+    max-width: 400px;
+    width: 100%;
+    margin: 2rem auto;
+    background: var(--color-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+/* Display */
+.display {
+    height: 60px;
+    background: var(--color-display-bg);
+    color: var(--color-display-text);
+    text-align: right;
+    font-size: var(--font-size-display);
+    line-height: 60px;
+    padding: 0 1rem;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-gap);
+    box-sizing: border-box;
+}
+
+/* Buttons grid */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-gap);
+}
+
+/* General button style */
+.btn {
+    width: 100%;
+    height: 60px;
+    font-size: var(--font-size-btn);
+    font-weight: 500;
+    color: var(--color-btn-text);
+    background: var(--color-btn-bg);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+    box-sizing: border-box;
+}
+
+.btn:hover,
+.btn:focus {
+    background: var(--color-btn-hover-bg);
+    outline: none;
+    transform: translateY(1px);
+}
+
+/* Operator buttons */
+.btn[data-action='operator'] {
+    background: var(--color-operator-bg);
+    color: var(--color-operator-text);
+}
+
+.btn[data-action='operator']:hover,
+.btn[data-action='operator']:focus {
+    background: var(--color-operator-bg-hover);
+}
+
+/* Clear and Backspace */
+.btn[data-action='clear'],
+.btn[data-action='backspace'] {
+    background: var(--color-clear-bg);
+    color: var(--color-clear-text);
+}
+
+.btn[data-action='clear']:hover,
+.btn[data-action='backspace']:hover,
+.btn[data-action='clear']:focus,
+.btn[data-action='backspace']:focus {
+    background: var(--color-clear-bg-hover);
+}
+
+/* Equals button */
+.btn[data-action='equals'] {
+    background: var(--color-equals-bg);
+    color: var(--color-equals-text);
+}
+
+.btn[data-action='equals']:hover,
+.btn[data-action='equals']:focus {
+    background: var(--color-equals-bg-hover);
+}
+
+/* Zero button spans two columns – already set inline, ensure it respects height */
+.btn[data-action='digit'][data-value='0'] {
+    font-size: var(--font-size-btn);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .calculator {
+        margin: 1rem;
+    }
+    .display {
+        height: 50px;
+        font-size: 1.5rem;
+        line-height: 50px;
+        padding: 0 0.5rem;
+    }
+    .btn {
+        height: 50px;
+        font-size: var(--font-size-btn-small);
+    }
+}
